@@ -13,13 +13,13 @@ pipeline {
         }
     }
     
- /*   post {
+    post {
         success {
-            mail to: ${params.MAINTENANCE}, subject: "Successful build! ${env.BUILD_DISPLAY_NAME}
+            mail to: ${params.MAINTENANCE}, subject: "Successful build!"
         }
         
         failure {
-            mail to: ${params.MAINTENANCE}, subject: "Unsuccessful build! ${env.BUILD_DISPLAY_NAME}
+            mail to: ${params.MAINTENANCE}, subject: "Unsuccessful build!"
         }
-    }*/
+    }
 }
