@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    parameters {
+        string(name: 'MAINTENANCE', defaultValue: 'Alex.Oachesu@tetrapak.com', description: 'Maintenance email address')
+    }
 
     stages {
         stage('Build') {
@@ -7,20 +11,14 @@ pipeline {
                 echo 'Building ..'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying ..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing ..'
-            }
-        }
-        stage('Release') {
-            steps {
-                echo 'Releasing!'
-            }
-        }
     }
+    
+    post {
+        success {
+            mail to: ${params.MAINTENANCE}, subject: "Successful build! ${env.BUILD_DISPLAY_NAME}
+        }
+        
+        failure {
+            mail to: ${params.MAINTENANCE}, subject: "Unsuccessful build! ${env.BUILD_DISPLAY_NAME}
+        }
 }
