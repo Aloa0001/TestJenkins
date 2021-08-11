@@ -20,6 +20,6 @@ pipeline {
         
         failure {
             mail to: "${params.MAINTENANCE}", subject: "Unsuccessful build!"
-        }*/
-    }
+        }
+    }*/
 }
