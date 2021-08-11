@@ -15,11 +15,11 @@ pipeline {
     
     post {
         success {
-            mail to: ${params.MAINTENANCE}, subject: "Successful build!"
+            mail to: "${params.MAINTENANCE}", subject: "Successful build!"
         }
         
         failure {
-            mail to: ${params.MAINTENANCE}, subject: "Unsuccessful build!"
+            mail to: "${params.MAINTENANCE}", subject: "Unsuccessful build!"
         }
     }
 }
