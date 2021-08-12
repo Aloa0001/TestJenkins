@@ -4,9 +4,13 @@ pipeline {
     parameters {
         string(name: 'MAINTENANCE', defaultValue: 'Alex.Oachesu@tetrapak.com', description: 'Maintenance email address')
     }
+    
+    environment {
+        VERSION = 'x.yz' // the version should be given by a groovy script function that retrieves it from the code 
+    }
 
     stages {
-        stage('Build') {
+        stage('Testing when && expression') {
             when {
                 expression {
                     BRANCH_NAME == 'main' 
@@ -16,6 +20,17 @@ pipeline {
                 echo MAINTENANCE
                 echo BRANCH_NAME
                 echo 'Building ..'
+            }
+        }
+    }
+    
+    stages {
+        stage('Testing environment additions') {
+            steps {
+                echo VERSION
+                echo ${VERSION}
+                echo "${VERSION}"
+                
             }
         }
     }
