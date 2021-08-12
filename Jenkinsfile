@@ -3,12 +3,21 @@ pipeline {
     
     parameters {
         string(name: 'MAINTENANCE', defaultValue: 'Alex.Oachesu@tetrapak.com', description: 'Maintenance email address')
+        choice(name: 'VERSION', choices: ['1.1', '1.2', '1.3', '1.4'], description: 'Versions to be available')
+        booleanParam(name: 'executeTests', defaultValue: true, description: 'Execute onli tests')
     }
     
     environment {
         VERSION = 'x.yz' // the version should be given by a groovy script function that retrieves it from the code 
         CREDENTIALS = credentials('testing-credentials')
     }
+    
+    tools{
+        maven 'Maven'
+        // gradle
+        // jdk
+    }
+    
     stages {
         stage('Testing when && expression') {
             when {
@@ -22,6 +31,16 @@ pipeline {
                 echo 'Building ..'
             }
         }
+        
+        stage('Testing parameters'){
+            when {
+                expresion {
+                    params.executeTests
+                }
+            }
+            echo 'executing tests'
+        }
+        
     
 
         stage('Testing env vars && additions') { 
