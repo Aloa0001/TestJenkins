@@ -46,7 +46,7 @@ pipeline {
                 
                 // retrieving credentials at steps-block-level
                 withCredentials([
-                    usernamePassword(credentials: 'testing-credentials', usernameVariable: USER, passwordVariable: PSW)
+                    usernamePassword(credentials: 'testing-credentials', usernameVariable: USER)
                 ]) {
                     // echo "Username: ${USER}\nPassword: ${PSW}"
                     // sh "script ${USER} ${PSW}"
