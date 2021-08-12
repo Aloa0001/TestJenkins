@@ -38,7 +38,9 @@ pipeline {
                     params.executeTests
                 }
             }
-            echo 'executing tests'
+            steps{
+                echo 'executing tests'
+            }
         }
         
     
