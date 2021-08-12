@@ -36,10 +36,9 @@ pipeline {
                 }
             }
             steps {
-                echo '#1'
-                //script {
-                    //groovyScript.testingWhenAndExpression() 
-                //}
+                script {
+                    groovyScript.testingWhenAndExpression() 
+                }
             }
         }
         
@@ -50,29 +49,26 @@ pipeline {
                 }
             }
             steps{
-                echo '#2'
-                //script {
-                    //groovyScript.testingParameters()
-                //}
+                script {
+                    groovyScript.testingParameters()
+                }
             }
         }
         
         stage('Testing env vars && additions') { 
             steps {
-                echo '#3'
-                //script {
-                    //groovyScript.testingEnvVarAndAddedEnvVar() 
-                //}
+                script {
+                    groovyScript.testingEnvVarAndAddedEnvVar() 
+                }
                 // all env vars are available at *jenkins-dashbord*/env-vars.html
             }
         }
 
         stage('Testing credentials ussage in Jenkinsfile') { 
             steps {
-                echo '#4'
-                //script {
-                    //groovyScript.testingCredentialsUssage()
-                //}
+                script {
+                    groovyScript.testingCredentialsUssage()
+                }
                 // retrieving credentials at steps-block-level
                 // withCredentials([
                        // usernamePassword(credentials: 'testing-credentials', usernameVariable: USER, passwordVariable: PASSWORD )
