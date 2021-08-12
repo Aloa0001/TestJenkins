@@ -27,7 +27,7 @@ pipeline {
         stage('Testing env vars && additions') { 
             steps {
                 echo "version: ${VERSION}"
-                echo "version: "${VERSION}""
+                echo "version: ${VERSION}"
                 echo "build: ${BUILD_ID}"
                 echo "ci: ${CI}"
                 echo "build number: ${BUILD_NUMBER}"
