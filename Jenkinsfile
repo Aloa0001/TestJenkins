@@ -43,6 +43,14 @@ pipeline {
         stage('Testing credentials ussage in Jenkinsfile') { 
             steps {
                 echo "Credentials being used: ${CREDENTIALS}"
+                
+                // defining the credential steps-block-level
+                withCredentials([
+                    usernamePassword(credentials: 'testing-credentials', usernameVariable: USER, passwordVariable: PSW)
+                ]) {
+                    echo "Username: ${USER}\nPassword: ${PSW}"
+                    sh "Username: ${USER} Password: ${PSW}"
+                }
             }
         }
     }
