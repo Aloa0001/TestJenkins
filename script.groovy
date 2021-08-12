@@ -10,15 +10,15 @@ def testingParameters() {
 
 def testingEnvVarAndAddedEnvVar() {
   echo "version: ${VERSION}"
-                echo "version: ${VERSION}"
-                echo "build: ${BUILD_ID}"
-                echo "ci: ${CI}"
-                echo "build number: ${BUILD_NUMBER}"
-                echo "job name: ${JOB_NAME}"
-                echo "jenkins url: ${JENKINS_URL}"
-                echo "build url: ${BUILD_URL}"
-                echo "job url: ${JOB_URL}"
-                echo "git url: ${GIT_URL}
+  echo "version: ${params.VERSION}"
+  echo "build: ${env.BUILD_ID}"
+  echo "ci: ${env.CI}"
+  echo "build number: ${env.BUILD_NUMBER}"
+  echo "job name: ${env.JOB_NAME}"
+  echo "jenkins url: ${env.JENKINS_URL}"
+  echo "build url: ${env.BUILD_URL}"
+  echo "job url: ${env.JOB_URL}"
+  echo "git url: ${env.GIT_URL}
 }
 
 def testingCredentialsUssage() {
