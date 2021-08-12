@@ -7,6 +7,11 @@ pipeline {
 
     stages {
         stage('Build') {
+            when {
+                expression {
+                    BRANCH_NAME == 'develop'
+                }
+            }
             steps {
                 echo MAINTENANCE
                 echo BRANCH_NAME
