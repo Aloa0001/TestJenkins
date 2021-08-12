@@ -4,7 +4,6 @@ def testingWhenAndExpression() {
   echo 'Building ..'
 }
 
-
 def testingParameters() {
   echo 'executing tests ...'
 }
