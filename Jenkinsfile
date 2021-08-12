@@ -9,7 +9,6 @@ pipeline {
         VERSION = 'x.yz' // the version should be given by a groovy script function that retrieves it from the code 
     }
 
-    stages {
         stage('Testing when && expression') {
             when {
                 expression {
@@ -31,7 +30,6 @@ pipeline {
                 
             }
         }
-    }
     
     /*post {
         success {
