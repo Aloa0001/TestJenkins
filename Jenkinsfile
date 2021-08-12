@@ -48,7 +48,7 @@ pipeline {
                 withCredentials([
                     usernamePassword(credentials: 'testing-credentials', usernameVariable: USER, passwordVariable: PSW)
                 ]) {
-                    echo "Username: ${USER}\nPassword: ${PSW}"
+                    // echo "Username: ${USER}\nPassword: ${PSW}"
                     // sh "script ${USER} ${PSW}"
                 }
             }
