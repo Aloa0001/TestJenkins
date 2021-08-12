@@ -23,10 +23,19 @@ pipeline {
         }
     
 
-        stage('Testing environment additions') {
+        stage('Testing env vars && additions') { 
             steps {
                 echo VERSION
                 echo "${VERSION}"
+                echo BUILD_ID
+                echo CI
+                echo BUILD_NUMBER
+                echo JOB_NAME
+                echo JENKINS_URL
+                echo BUILD_URL
+                echo JOB_URL
+                echo GIT_URL
+                // all env vars are available at *jenkins-dashbord*/env-vars.html
             }
         }
     }
