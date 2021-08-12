@@ -1,3 +1,4 @@
+def groovyScript
 pipeline {
     agent any
     
@@ -19,6 +20,14 @@ pipeline {
     }
     
     stages {
+        stage('init'){
+            steps {
+                script {
+                   groovyScript = load "script.groovy"
+                }
+            }
+        }
+        
         stage('Testing when && expression') {
             when {
                 expression {
@@ -26,9 +35,9 @@ pipeline {
                 }
             }
             steps {
-                echo MAINTENANCE
-                echo BRANCH_NAME
-                echo 'Building ..'
+                script {
+                    groovyScript.testingWhenAndExpression() 
+                }
             }
         }
         
@@ -39,32 +48,26 @@ pipeline {
                 }
             }
             steps{
-                echo 'executing tests'
+                script {
+                    groovyScript.testingParameters()
+                }
             }
         }
         
-    
-
         stage('Testing env vars && additions') { 
             steps {
-                echo "version: ${VERSION}"
-                echo "version: ${VERSION}"
-                echo "build: ${BUILD_ID}"
-                echo "ci: ${CI}"
-                echo "build number: ${BUILD_NUMBER}"
-                echo "job name: ${JOB_NAME}"
-                echo "jenkins url: ${JENKINS_URL}"
-                echo "build url: ${BUILD_URL}"
-                echo "job url: ${JOB_URL}"
-                echo "git url: ${GIT_URL}"
+                script {
+                    groovyScript.testingEnvVarAndAddedEnvVar() 
+                }
                 // all env vars are available at *jenkins-dashbord*/env-vars.html
             }
         }
 
         stage('Testing credentials ussage in Jenkinsfile') { 
             steps {
-                echo "Credentials being used: ${CREDENTIALS}"
-                
+                script {
+                    groovyScript.testingCredentialsUssage()
+                }
                 // retrieving credentials at steps-block-level
                 // withCredentials([
                        // usernamePassword(credentials: 'testing-credentials', usernameVariable: USER, passwordVariable: PASSWORD )
