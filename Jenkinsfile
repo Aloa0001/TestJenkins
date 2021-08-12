@@ -22,14 +22,12 @@ pipeline {
             }
         }
     }
-    
-    stages {
-        stage('Testing environment additions') {
-            steps {
-                echo VERSION
-                echo "${VERSION}"
-            }
+    stage('Testing environment additions') {
+        steps {
+            echo VERSION
+            echo "${VERSION}"
         }
+    }
     
     /*post {
         success {
