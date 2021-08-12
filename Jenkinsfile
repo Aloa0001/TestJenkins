@@ -14,11 +14,11 @@ pipeline {
         CREDENTIALS = credentials('testing-credentials')
     }
     
-    //tools{
-        // maven 'Maven'
+    tools{
+        maven 'Maven'
         // gradle
         // jdk
-    //}
+    }
     
     stages {
         stage('init'){
