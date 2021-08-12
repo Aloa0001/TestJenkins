@@ -1,6 +1,6 @@
 def testingWhenAndExpression() {
-  echo MAINTENANCE
-  echo BRANCH_NAME
+  echo params.MAINTENANCE
+  echo "${BRANCH_NAME}"
   echo 'Building ..'
 }
 
