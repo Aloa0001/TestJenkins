@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo env.MAINTENANCE
-                echo BRANCH_NAME
+                echo this.env.BRANCH_NAME
                 echo 'Building ..'
             }
         }
