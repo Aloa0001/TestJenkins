@@ -1,4 +1,5 @@
 def groovyScript
+
 pipeline {
     agent any
     
@@ -35,9 +36,9 @@ pipeline {
                 }
             }
             steps {
-                script {
-                    groovyScript.testingWhenAndExpression() 
-                }
+                //script {
+                    //groovyScript.testingWhenAndExpression() 
+                //}
             }
         }
         
@@ -48,26 +49,26 @@ pipeline {
                 }
             }
             steps{
-                script {
-                    groovyScript.testingParameters()
-                }
+                //script {
+                    //groovyScript.testingParameters()
+                //}
             }
         }
         
         stage('Testing env vars && additions') { 
             steps {
-                script {
-                    groovyScript.testingEnvVarAndAddedEnvVar() 
-                }
+                //script {
+                    //groovyScript.testingEnvVarAndAddedEnvVar() 
+                //}
                 // all env vars are available at *jenkins-dashbord*/env-vars.html
             }
         }
 
         stage('Testing credentials ussage in Jenkinsfile') { 
             steps {
-                script {
-                    groovyScript.testingCredentialsUssage()
-                }
+                //script {
+                    //groovyScript.testingCredentialsUssage()
+                //}
                 // retrieving credentials at steps-block-level
                 // withCredentials([
                        // usernamePassword(credentials: 'testing-credentials', usernameVariable: USER, passwordVariable: PASSWORD )
