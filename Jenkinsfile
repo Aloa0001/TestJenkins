@@ -28,7 +28,6 @@ pipeline {
         stage('Testing environment additions') {
             steps {
                 echo VERSION
-                echo ${VERSION}
                 echo "${VERSION}"
                 
             }
