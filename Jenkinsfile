@@ -7,6 +7,7 @@ pipeline {
     
     environment {
         VERSION = 'x.yz' // the version should be given by a groovy script function that retrieves it from the code 
+        CREDENTIALS = credentials('testing-credentials')
     }
     stages {
         stage('Testing when && expression') {
@@ -25,17 +26,23 @@ pipeline {
 
         stage('Testing env vars && additions') { 
             steps {
-                echo VERSION
-                echo "${VERSION}"
-                echo BUILD_ID
-                echo CI
-                echo BUILD_NUMBER
-                echo JOB_NAME
-                echo JENKINS_URL
-                echo BUILD_URL
-                echo JOB_URL
-                echo GIT_URL
+                echo version VERSION
+                echo version "${VERSION}"
+                echo build BUILD_ID
+                echo ci CI
+                echo build number BUILD_NUMBER
+                echo job name JOB_NAME
+                echo jenkins url JENKINS_URL
+                echo build url BUILD_URL
+                echo job url JOB_URL
+                echo git url GIT_URL
                 // all env vars are available at *jenkins-dashbord*/env-vars.html
+            }
+        }
+
+        stage('Testing credentials ussage in Jenkinsfile') { 
+            steps {
+                echo "Credentials being used: ${CREDENTIALS}"
             }
         }
     }
