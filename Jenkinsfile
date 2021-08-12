@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             when {
                 expression {
-                    BRANCH_NAME == 'develop'
+                    BRANCH_NAME == 'develop' || CODE_CHANGES == true
                 }
             }
             steps {
