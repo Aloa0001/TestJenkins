@@ -49,7 +49,7 @@ pipeline {
                     usernamePassword(credentials: 'testing-credentials', usernameVariable: USER, passwordVariable: PSW)
                 ]) {
                     echo "Username: ${USER}\nPassword: ${PSW}"
-                    sh "Username: ${USER} Password: ${PSW}"
+                    // sh "script ${USER} ${PSW}"
                 }
             }
         }
