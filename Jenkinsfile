@@ -44,7 +44,7 @@ pipeline {
             steps {
                 echo "Credentials being used: ${CREDENTIALS}"
                 
-                // defining the credential steps-block-level
+                // retrieving credentials at steps-block-level
                 withCredentials([
                     usernamePassword(credentials: 'testing-credentials', usernameVariable: USER, passwordVariable: PSW)
                 ]) {
