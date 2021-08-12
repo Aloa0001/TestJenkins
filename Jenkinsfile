@@ -36,6 +36,7 @@ pipeline {
                 }
             }
             steps {
+                echo #1
                 //script {
                     //groovyScript.testingWhenAndExpression() 
                 //}
@@ -49,6 +50,7 @@ pipeline {
                 }
             }
             steps{
+                echo #2
                 //script {
                     //groovyScript.testingParameters()
                 //}
@@ -57,6 +59,7 @@ pipeline {
         
         stage('Testing env vars && additions') { 
             steps {
+                echo #3
                 //script {
                     //groovyScript.testingEnvVarAndAddedEnvVar() 
                 //}
@@ -66,6 +69,7 @@ pipeline {
 
         stage('Testing credentials ussage in Jenkinsfile') { 
             steps {
+                echo #4
                 //script {
                     //groovyScript.testingCredentialsUssage()
                 //}
